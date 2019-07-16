@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3708103d-9a39-4ed9-bb71-bfde3255a127" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bkp_ham_vs_spam_classificacaodeemail.py" beforeDir="false" afterPath="$PROJECT_DIR$/bkp_ham_vs_spam_classificacaodeemail.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sms-spam/SMSSpamCollection" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sms-spam/n_words.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sms-spam/train-data.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sms-spam/valid-data.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sms-spam/vocab_list.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictUsingServingFunction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Principal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bkp_ham_vs_spam_classificacaodeemail.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassificadorDeDocumentos.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,16 +14,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PredictUsingServingFunction.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bkp_ham_vs_spam_classificacaodeemail.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret column="20" selection-start-column="20" selection-end-column="20" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -48,6 +43,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/bkp_ham_vs_spam_classificacaodeemail.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -90,6 +86,11 @@
               <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="arquivos" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="classificador_documentos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="classificador_documentos" type="462c0819:PsiDirectoryNode" />
+              <item name="trained_models" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -97,6 +98,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -151,15 +153,25 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bkp_ham_vs_spam_classificacaodeemail.py">
+    <entry file="file://$PROJECT_DIR$/ClassificadorDeDocumentos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
+        <state relative-caret-position="15">
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PredictUsingServingFunction.py">
+    <entry file="file://$PROJECT_DIR$/Principal.py">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="20" selection-start-column="20" selection-end-column="20" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
