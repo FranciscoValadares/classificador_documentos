@@ -25,11 +25,11 @@ print(tf.__version__)
 
 
 MODEL_NAME               = 'sms-class-model-01'
-TRAIN_DATA_FILES_PATTERN = 'data/sms-spam/train-*.tsv'
-VALID_DATA_FILES_PATTERN = 'data/sms-spam/valid-*.tsv'
-VOCAB_LIST_FILE          = 'data/sms-spam/vocab_list.tsv'
-N_WORDS_FILE             = 'data/sms-spam/n_words.tsv'
-SMS_TRAIN                = 'data/sms-spam/train-data.tsv'
+TRAIN_DATA_FILES_PATTERN = 'data/arquivos/train-*.tsv'
+VALID_DATA_FILES_PATTERN = 'data/arquivos/valid-*.tsv'
+VOCAB_LIST_FILE          = 'data/arquivos/vocab_list.tsv'
+N_WORDS_FILE             = 'data/arquivos/n_words.tsv'
+SMS_TRAIN                = 'data/arquivos/train-data.tsv'
 
 
 RESUME_TRAINING = False
