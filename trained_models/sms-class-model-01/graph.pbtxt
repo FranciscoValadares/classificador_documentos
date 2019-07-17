@@ -450,7 +450,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "data/sms-spam/train-*.tsv"
+        string_val: "data/arquivos/train-*.tsv"
       }
     }
   }
@@ -1013,7 +1013,7 @@ node {
     key: "dataset_factory"
     value {
       func {
-        name: "_make_dataset_IplhK9MeVmM"
+        name: "_make_dataset_j1qIhdc1hFQ"
       }
     }
   }
@@ -1508,7 +1508,7 @@ node {
   attr {
     key: "shared_name"
     value {
-      s: "hash_table_data/sms-spam/vocab_list.tsv_-2_-1"
+      s: "hash_table_data/arquivos/vocab_list.tsv_-2_-1"
     }
   }
   attr {
@@ -1549,7 +1549,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "data/sms-spam/vocab_list.tsv"
+        string_val: "data/arquivos/vocab_list.tsv"
       }
     }
   }
@@ -17850,7 +17850,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "_temp_ff7204700d5d47e291616e55ffabde12/part"
+        string_val: "_temp_b8f7d82f50fc4dd9a47a535fe377c62b/part"
       }
     }
   }
@@ -18925,7 +18925,282 @@ node {
 library {
   function {
     signature {
-      name: "_make_dataset_IplhK9MeVmM"
+      name: "Dataset_map_<lambda>_35"
+      input_arg {
+        name: "arg0"
+        type: DT_STRING
+      }
+      output_arg {
+        name: "decodecsv"
+        type: DT_STRING
+      }
+      output_arg {
+        name: "cond_merge"
+        type: DT_FLOAT
+      }
+      output_arg {
+        name: "decodecsv_0"
+        type: DT_STRING
+      }
+      description: "Wrapper for passing nested structures to and from tf.data functions."
+    }
+    node_def {
+      name: "DecodeCSV/record_defaults_0"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "NA"
+          }
+        }
+      }
+    }
+    node_def {
+      name: "DecodeCSV/record_defaults_1"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "NA"
+          }
+        }
+      }
+    }
+    node_def {
+      name: "DecodeCSV"
+      op: "DecodeCSV"
+      input: "arg0"
+      input: "DecodeCSV/record_defaults_0:output:0"
+      input: "DecodeCSV/record_defaults_1:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "OUT_TYPE"
+        value {
+          list {
+            type: DT_STRING
+            type: DT_STRING
+          }
+        }
+      }
+      attr {
+        key: "field_delim"
+        value {
+          s: "\t"
+        }
+      }
+      attr {
+        key: "na_value"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "select_cols"
+        value {
+          list {
+          }
+        }
+      }
+      attr {
+        key: "use_quote_delim"
+        value {
+          b: true
+        }
+      }
+    }
+    node_def {
+      name: "Equal/y"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+            }
+            string_val: "spam"
+          }
+        }
+      }
+    }
+    node_def {
+      name: "Equal"
+      op: "Equal"
+      input: "DecodeCSV:output:0"
+      input: "Equal/y:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_STRING
+        }
+      }
+    }
+    node_def {
+      name: "cond/Switch"
+      op: "Switch"
+      input: "Equal:z:0"
+      input: "Equal:z:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_BOOL
+        }
+      }
+    }
+    node_def {
+      name: "cond/switch_t"
+      op: "Identity"
+      input: "cond/Switch:output_true:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_BOOL
+        }
+      }
+    }
+    node_def {
+      name: "cond/switch_f"
+      op: "Identity"
+      input: "cond/Switch:output_false:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_BOOL
+        }
+      }
+    }
+    node_def {
+      name: "cond/pred_id"
+      op: "Identity"
+      input: "Equal:z:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_BOOL
+        }
+      }
+    }
+    node_def {
+      name: "cond/Const"
+      op: "Const"
+      input: "^cond/switch_t"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 6.59999990463
+          }
+        }
+      }
+    }
+    node_def {
+      name: "cond/Const_1"
+      op: "Const"
+      input: "^cond/switch_f"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 1.0
+          }
+        }
+      }
+    }
+    node_def {
+      name: "cond/Merge"
+      op: "Merge"
+      input: "cond/Const_1:output:0"
+      input: "cond/Const:output:0"
+      device: "/device:CPU:0"
+      attr {
+        key: "N"
+        value {
+          i: 2
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    ret {
+      key: "cond_merge"
+      value: "cond/Merge:output:0"
+    }
+    ret {
+      key: "decodecsv"
+      value: "DecodeCSV:output:1"
+    }
+    ret {
+      key: "decodecsv_0"
+      value: "DecodeCSV:output:0"
+    }
+  }
+  function {
+    signature {
+      name: "_make_dataset_j1qIhdc1hFQ"
       output_arg {
         name: "modeldataset"
         type: DT_VARIANT
@@ -18977,7 +19252,7 @@ library {
             dtype: DT_STRING
             tensor_shape {
             }
-            string_val: "data/sms-spam/train-*.tsv"
+            string_val: "data/arquivos/train-*.tsv"
           }
         }
       }
@@ -19712,281 +19987,6 @@ library {
     ret {
       key: "modeldataset"
       value: "ModelDataset:handle:0"
-    }
-  }
-  function {
-    signature {
-      name: "Dataset_map_<lambda>_35"
-      input_arg {
-        name: "arg0"
-        type: DT_STRING
-      }
-      output_arg {
-        name: "decodecsv"
-        type: DT_STRING
-      }
-      output_arg {
-        name: "cond_merge"
-        type: DT_FLOAT
-      }
-      output_arg {
-        name: "decodecsv_0"
-        type: DT_STRING
-      }
-      description: "Wrapper for passing nested structures to and from tf.data functions."
-    }
-    node_def {
-      name: "DecodeCSV/record_defaults_0"
-      op: "Const"
-      device: "/device:CPU:0"
-      attr {
-        key: "dtype"
-        value {
-          type: DT_STRING
-        }
-      }
-      attr {
-        key: "value"
-        value {
-          tensor {
-            dtype: DT_STRING
-            tensor_shape {
-              dim {
-                size: 1
-              }
-            }
-            string_val: "NA"
-          }
-        }
-      }
-    }
-    node_def {
-      name: "DecodeCSV/record_defaults_1"
-      op: "Const"
-      device: "/device:CPU:0"
-      attr {
-        key: "dtype"
-        value {
-          type: DT_STRING
-        }
-      }
-      attr {
-        key: "value"
-        value {
-          tensor {
-            dtype: DT_STRING
-            tensor_shape {
-              dim {
-                size: 1
-              }
-            }
-            string_val: "NA"
-          }
-        }
-      }
-    }
-    node_def {
-      name: "DecodeCSV"
-      op: "DecodeCSV"
-      input: "arg0"
-      input: "DecodeCSV/record_defaults_0:output:0"
-      input: "DecodeCSV/record_defaults_1:output:0"
-      device: "/device:CPU:0"
-      attr {
-        key: "OUT_TYPE"
-        value {
-          list {
-            type: DT_STRING
-            type: DT_STRING
-          }
-        }
-      }
-      attr {
-        key: "field_delim"
-        value {
-          s: "\t"
-        }
-      }
-      attr {
-        key: "na_value"
-        value {
-          s: ""
-        }
-      }
-      attr {
-        key: "select_cols"
-        value {
-          list {
-          }
-        }
-      }
-      attr {
-        key: "use_quote_delim"
-        value {
-          b: true
-        }
-      }
-    }
-    node_def {
-      name: "Equal/y"
-      op: "Const"
-      device: "/device:CPU:0"
-      attr {
-        key: "dtype"
-        value {
-          type: DT_STRING
-        }
-      }
-      attr {
-        key: "value"
-        value {
-          tensor {
-            dtype: DT_STRING
-            tensor_shape {
-            }
-            string_val: "spam"
-          }
-        }
-      }
-    }
-    node_def {
-      name: "Equal"
-      op: "Equal"
-      input: "DecodeCSV:output:0"
-      input: "Equal/y:output:0"
-      device: "/device:CPU:0"
-      attr {
-        key: "T"
-        value {
-          type: DT_STRING
-        }
-      }
-    }
-    node_def {
-      name: "cond/Switch"
-      op: "Switch"
-      input: "Equal:z:0"
-      input: "Equal:z:0"
-      device: "/device:CPU:0"
-      attr {
-        key: "T"
-        value {
-          type: DT_BOOL
-        }
-      }
-    }
-    node_def {
-      name: "cond/switch_t"
-      op: "Identity"
-      input: "cond/Switch:output_true:0"
-      device: "/device:CPU:0"
-      attr {
-        key: "T"
-        value {
-          type: DT_BOOL
-        }
-      }
-    }
-    node_def {
-      name: "cond/switch_f"
-      op: "Identity"
-      input: "cond/Switch:output_false:0"
-      device: "/device:CPU:0"
-      attr {
-        key: "T"
-        value {
-          type: DT_BOOL
-        }
-      }
-    }
-    node_def {
-      name: "cond/pred_id"
-      op: "Identity"
-      input: "Equal:z:0"
-      device: "/device:CPU:0"
-      attr {
-        key: "T"
-        value {
-          type: DT_BOOL
-        }
-      }
-    }
-    node_def {
-      name: "cond/Const"
-      op: "Const"
-      input: "^cond/switch_t"
-      device: "/device:CPU:0"
-      attr {
-        key: "dtype"
-        value {
-          type: DT_FLOAT
-        }
-      }
-      attr {
-        key: "value"
-        value {
-          tensor {
-            dtype: DT_FLOAT
-            tensor_shape {
-            }
-            float_val: 6.59999990463
-          }
-        }
-      }
-    }
-    node_def {
-      name: "cond/Const_1"
-      op: "Const"
-      input: "^cond/switch_f"
-      device: "/device:CPU:0"
-      attr {
-        key: "dtype"
-        value {
-          type: DT_FLOAT
-        }
-      }
-      attr {
-        key: "value"
-        value {
-          tensor {
-            dtype: DT_FLOAT
-            tensor_shape {
-            }
-            float_val: 1.0
-          }
-        }
-      }
-    }
-    node_def {
-      name: "cond/Merge"
-      op: "Merge"
-      input: "cond/Const_1:output:0"
-      input: "cond/Const:output:0"
-      device: "/device:CPU:0"
-      attr {
-        key: "N"
-        value {
-          i: 2
-        }
-      }
-      attr {
-        key: "T"
-        value {
-          type: DT_FLOAT
-        }
-      }
-    }
-    ret {
-      key: "cond_merge"
-      value: "cond/Merge:output:0"
-    }
-    ret {
-      key: "decodecsv"
-      value: "DecodeCSV:output:1"
-    }
-    ret {
-      key: "decodecsv_0"
-      value: "DecodeCSV:output:0"
     }
   }
 }

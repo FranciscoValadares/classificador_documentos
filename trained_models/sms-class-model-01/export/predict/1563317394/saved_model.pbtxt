@@ -1383,7 +1383,7 @@ meta_graphs {
       attr {
         key: "shared_name"
         value {
-          s: "hash_table_data/sms-spam/vocab_list.tsv_-2_-1"
+          s: "hash_table_data/arquivos/vocab_list.tsv_-2_-1"
         }
       }
       attr {
@@ -1418,7 +1418,7 @@ meta_graphs {
             dtype: DT_STRING
             tensor_shape {
             }
-            string_val: "data/sms-spam/vocab_list.tsv"
+            string_val: "data/arquivos/vocab_list.tsv"
           }
         }
       }
@@ -3480,7 +3480,7 @@ meta_graphs {
             dtype: DT_STRING
             tensor_shape {
             }
-            string_val: "_temp_37105d923eba4d5bafd0fddc8daef3e4/part"
+            string_val: "_temp_ce9ae11937aa4acfb4a2c410d7f52e6e/part"
           }
         }
       }
